@@ -1,13 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import AppManager from './Manager/AppManager';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <AppManager/>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        backgroundColor="black"
+        barStyle='dark-content'
+      />
+      <AppManager />
+    </SafeAreaView>
   );
 }
 
