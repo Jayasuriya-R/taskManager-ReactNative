@@ -5,11 +5,11 @@ import AddTaskScreen from '../Screen/AddTaskScreen'
 import { Button } from 'react-native-paper'
 
 const AppManager = () => {
-    const [screen, setScreen] = useState(false)
+    const [screen, setScreen] = useState(true)
   return (
-    <View>
+    <View >
       {
-        screen ? <HomeScreen/> : <AddTaskScreen/>
+        screen ? <HomeScreen /> : <AddTaskScreen/>
       }
 
       <Button  onPress={()=> setScreen(!screen)}>{screen ? "Add Task" : "Home"}</Button>

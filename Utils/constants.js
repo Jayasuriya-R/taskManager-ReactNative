@@ -6,7 +6,8 @@ export const tasksData = [
     status: "pending", // pending | in-progress | completed
     priority: "high",  // low | medium | high
     dueDate: "2025-01-10",
-    createdAt: "2024-12-18"
+    createdAt: "2024-12-18",
+    isCompleted:false
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ export const tasksData = [
     status: "in-progress",
     priority: "medium",
     dueDate: "2025-01-20",
-    createdAt: "2024-12-18"
+    createdAt: "2024-12-18",
+     isCompleted:false
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ export const tasksData = [
     status: "pending",
     priority: "high",
     dueDate: "2025-01-15",
-    createdAt: "2024-12-18"
+    createdAt: "2024-12-18",
+     isCompleted:false
   },
   {
     id: 4,
@@ -33,6 +36,7 @@ export const tasksData = [
     status: "completed",
     priority: "low",
     dueDate: "2024-12-30",
-    createdAt: "2024-12-10"
+    createdAt: "2024-12-10",
+     isCompleted:true
   }
 ];

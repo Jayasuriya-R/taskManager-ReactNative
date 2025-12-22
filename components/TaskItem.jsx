@@ -1,17 +1,30 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { Card } from 'react-native-paper'
+import { Button, Card, Chip } from 'react-native-paper'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-const TaskItem = ({task,desc,status }) => {
+const TaskItem = ({ task, desc, setTaskData, isCompleted ,id}) => {
   return (
-    <View>
+    <View style={{
+      marginVertical: 5,
+      marginHorizontal: 5
+    }}>
       <Card>
-        <Card.Title title={task}  />
+        {isCompleted && <Chip
+          icon="check"
+        >
+          Completed
+        </Chip>}
+        <Card.Title title={task} />
         <Card.Content>
           <Text variant="bodyMedium">{desc}</Text>
-          <Text >{status}</Text>
         </Card.Content>
-        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+        <Card.Actions style={{
+          justifyContent: "flex-end"
+        }}>
+          <Button>Delete</Button>
+          <Button onPress={setTaskData}>Complete</Button>
+        </Card.Actions>
       </Card>
     </View>
   )
