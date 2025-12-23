@@ -3,7 +3,8 @@ import React from 'react'
 import { Button, Card, Chip } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const TaskItem = ({ task, desc, setTaskData, isCompleted ,id}) => {
+const TaskItem = ({ task, desc, handleTaskComplete, isCompleted ,id}) => {
+
   return (
     <View style={{
       marginVertical: 5,
@@ -23,7 +24,7 @@ const TaskItem = ({ task, desc, setTaskData, isCompleted ,id}) => {
           justifyContent: "flex-end"
         }}>
           <Button>Delete</Button>
-          <Button onPress={setTaskData}>Complete</Button>
+          <Button onPress={()=>handleTaskComplete(id)}>Complete</Button>
         </Card.Actions>
       </Card>
     </View>
