@@ -4,6 +4,7 @@ import HomeScreen from '../Screen/HomeScreen'
 import AddTaskScreen from '../Screen/AddTaskScreen'
 import { tasksData } from '../Utils/constants'
 import { Button } from 'react-native-paper'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 const AppManager = () => {
   const [screen, setScreen] = useState(true)
@@ -16,19 +17,27 @@ const AppManager = () => {
     setTaskData((prev) =>
       prev.map((task) =>
         task.id === id
-          ? { ...task, isCompleted: true }
+          ? { ...task, isCompleted: !task.isCompleted }
           : task
       )
     )
   }
+  const handleTaskDelete = (id) => {
+    setTaskData((prev) =>
+      prev.filter((task) => task.id !== id)
+    )
+  }
   return (
-    <View >
-      {
-        screen ? <HomeScreen taskData={taskData} handleTaskComplete={handleTaskComplete} /> : <AddTaskScreen addNewTask={addNewTask} />
-      }
+    <SafeAreaProvider>
+      <View >
+        {
+          screen ? <HomeScreen taskData={taskData} handleTaskComplete={handleTaskComplete} 
+          handleTaskDelete={handleTaskDelete} setScreen={setScreen} /> :
+            <AddTaskScreen addNewTask={addNewTask} setScreen={setScreen} />
+        }
 
-      <Button onPress={() => setScreen(!screen)}>{screen ? "Add Task" : "Home"}</Button>
-    </View>
+      </View>
+    </SafeAreaProvider>
   )
 }
 

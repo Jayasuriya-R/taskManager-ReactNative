@@ -3,12 +3,12 @@ import React from 'react'
 import { Button, Card, Chip } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const TaskItem = ({ task, desc, handleTaskComplete, isCompleted ,id}) => {
+const TaskItem = ({ task, desc, handleTaskComplete,handleTaskDelete, isCompleted ,id}) => {
 
   return (
     <View style={{
       marginVertical: 5,
-      marginHorizontal: 5
+      marginHorizontal: 10
     }}>
       <Card>
         {isCompleted && <Chip
@@ -23,8 +23,8 @@ const TaskItem = ({ task, desc, handleTaskComplete, isCompleted ,id}) => {
         <Card.Actions style={{
           justifyContent: "flex-end"
         }}>
-          <Button>Delete</Button>
-          <Button onPress={()=>handleTaskComplete(id)}>Complete</Button>
+          <Button onPress={()=>handleTaskDelete(id)}>Delete</Button>
+          <Button onPress={()=>handleTaskComplete(id)}>{isCompleted ? "Undo" : "Complete"}</Button>
         </Card.Actions>
       </Card>
     </View>
