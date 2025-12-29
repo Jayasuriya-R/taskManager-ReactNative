@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import HomeScreen from '../Screen/HomeScreen'
 import AddTaskScreen from '../Screen/AddTaskScreen'
 import { tasksData } from '../Utils/constants'
-import { Button } from 'react-native-paper'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 const AppManager = () => {
